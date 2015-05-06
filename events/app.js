@@ -2,6 +2,10 @@
 // Summit for Software Engineers.
 //
 
+// ********
+// Event emitter example.
+// ********
+
 var events = require('events');
 var emitter = new events.EventEmitter();
 
@@ -14,4 +18,4 @@ setTimeout(function () {
     emitter.removeAllListeners('foo');
 }, 5000);
 
-console.log('Waiting ...');
+console.log('End of script ...');
