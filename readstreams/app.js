@@ -3,22 +3,22 @@
 //
 
 // ********
-// Readable stream example.
+// Readable Stream example.
 // ********
 
 var path = require('path');
 var file = path.join(__dirname, 'Latin-Lipsum.txt');
 var fs = require('fs');
 var readStream = fs.createReadStream(file);
+readStream.setEncoding('ascii'); // Data is an ASCII encoded string.
 readStream.on('open', function (fd) {
     console.log('Stream is open: ' + fd);
 
     // Currently the stream is paused.
     // Add a data event handler to transition to flowing.
     readStream.on('data', function (chunk) {
-        // chunk is a Buffer.
         console.log('** CHUNK: ' + chunk.length);
-        console.log(chunk.toString());
+        console.log(chunk);
     });
 
     readStream.on('end', function () {
